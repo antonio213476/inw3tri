@@ -4,55 +4,79 @@ window.onload = function (){
     main()
 }
 
-function main(){
+function navBar(){
     theBody.style.margin = '0'
-
-    const navBar = document.createElement('div')
-    navBar.classList.add('navBar')
-    navBar.style.width = '100%'
-    navBar.style.height = '100px'
-    navBar.style.backgroundColor = '#b35729'
-    navBar.style.display = 'flex'
-    navBar.style.alignItems = 'center'
     
-    const textBig = document.createElement('h2')
-    textBig.style.margin = '0'
-    textBig.style.marginLeft = '2%'
-    textBig.textContent = 'Bemvindo a meu site'
-    const cloneTextBig = textBig.cloneNode(true)
+    const div = document.createElement('div')
+    const ul = document.createElement('ul')
+    const li = document.createElement('li')
+    const a = document.createElement('a')
+    const button = document.createElement('button')
+    const span = document.createElement('span')
+    const h1 = document.createElement('h1')
 
-    const divQuemSou = document.createElement('div')
-    divQuemSou.style.marginTop = '2rem'
-    divQuemSou.style.display = 'flex'
-    divQuemSou.classList.add('quemSou') 
+    // Navbar
+    const script = document.createElement('script')
+    script.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'
+    script.integrity = 'sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz'
+    script.crossOrigin = 'anonymous'
 
-    const tableCoiso = document.createElement('table')
-    tableCoiso.style.width = '100%'
+    const navBar = document.createElement('nav')
+    navBar.classList.add('navbar', 'navbar-expand-lg', 'bg-body-tertiary')
 
-    const tableQuemSou = document.createElement('td')
-    tableQuemSou.classList.add('TdQuemSou')
-    tableQuemSou.style.width = '50%'
-    tableQuemSou.style.alignSelf = 'top'
-    const cloneQuem = tableQuemSou.cloneNode(true)
+   
+    const containerFluid = div.cloneNode(true)
+    containerFluid.classList.add('container-fluid')
 
+    const navBarBrand = a.cloneNode(true)
+    navBarBrand.classList.add('navbar-brand')
+    navBarBrand.textContent = 'Meu Portifolio'
 
-    const textoQuemSou2 = document.createElement('img')
-    textoQuemSou2.style.width = '50%'
-    textoQuemSou2.src = 'https://picsum.photos/200/300'
+    const navbarCollapse = div.cloneNode(true)
+    navbarCollapse.classList.add('collapse','navbar-collapse')
+    navbarCollapse.id = 'navBarThing'
+
+    const navbarNav = ul.cloneNode(true)
+    navbarNav.classList.add('navbar-nav', 'me-auto', 'mb-2', 'mb-lg-0')
+
+    const navItem = li.cloneNode(true)
+    navItem.classList.add('nav-item')
+
+    const navlink = a.cloneNode(true)
+    navlink.classList.add('nav-link')
+    
+    const navbartoggler = button.cloneNode(true)
+    navbartoggler.classList.add('navbar-toggler')
+    navbartoggler.type = 'button'
+    navbartoggler.setAttribute('data-bs-toggle','collapse')
+    navbartoggler.setAttribute('data-bs-target','#navBarThing')
+    navbartoggler.setAttribute('aria-controls','navBarThing')
+    navbartoggler.setAttribute('aria-expanded','false')
+    navbartoggler.setAttribute('aria-label','Toggle navigation')
+
+    const togglerIcon = span.cloneNode(true)
+    togglerIcon.classList.add('navbar-toggler-icon')
 
     theBody.appendChild(navBar)
-    theBody.appendChild(divQuemSou)
+    navBar.appendChild(containerFluid)
+    containerFluid.appendChild(navbarCollapse)
+    containerFluid.appendChild(navbartoggler)
+    navbartoggler.appendChild(togglerIcon)
+    navbarCollapse.appendChild(navbarNav)
 
-    navBar.appendChild(textBig)
-  
-    divQuemSou.appendChild(tableCoiso)
-    tableCoiso.appendChild(tableQuemSou)
-    
-    cloneTextBig.textContent = 'Quem sou'
-    tableQuemSou.appendChild(cloneTextBig)
-    tableCoiso.appendChild(tableQuemSou)
+    navItem.appendChild(navlink)
 
-    
-    cloneQuem.appendChild()
-    tableCoiso.appendChild(cloneQuem)
+    navbarNav.appendChild(navBarBrand)
+    navlink.textContent='Home'
+    navbarNav.appendChild(navItem.cloneNode(true))
+    navlink.textContent='Sobre'
+    navbarNav.appendChild(navItem.cloneNode(true))
+    navlink.textContent='Contato'
+    navbarNav.appendChild(navItem.cloneNode(true))
+
+    theBody.appendChild(script)
+
+
+    // Main Body
+
 }
