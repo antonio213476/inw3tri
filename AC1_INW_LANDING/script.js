@@ -20,6 +20,8 @@ function main(){
     const form = document.createElement('form')
     const label = document.createElement('label')
     const input = document.createElement('input')
+    const textArea = document.createElement('textarea')
+    const nav = document.createElement('nav')
 
     hr.style.margin = '0'
 
@@ -29,7 +31,7 @@ function main(){
     script.integrity = 'sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz'
     script.crossOrigin = 'anonymous'
 
-    const navBar = document.createElement('nav')
+    const navBar = nav.cloneNode(true)
     navBar.classList.add('navbar', 'navbar-expand-lg', 'bg-body-tertiary')
 
    
@@ -160,32 +162,101 @@ function main(){
     theBody.appendChild(hr.cloneNode(true))
 
     // Contato
+    const divNoia = div.cloneNode(true)
+    divNoia.classList.add('bg-body-secondary')
+
     const divCont = div.cloneNode(true)
-    divCont.style.marginTop = '2rem'
+    divCont.style.paddingTop = '2rem'
     divCont.style.marginLeft = '5rem'
     divCont.style.marginRight = '5rem'
-    divCont.style.marginBottom = '5rem'
+    divCont.style.paddingBottom = '2rem'
     divCont.classList.add('d-flex','justify-content-center')
 
     const contTexto = h1.cloneNode(true)
     contTexto.textContent = 'Contato'
 
-    theBody.appendChild(divCont)
-    divCont.appendChild(contTexto)
 
     const formt = form.cloneNode(true)
+    formt.style.paddingBottom = '5rem'
+    formt.classList.add('pb-4','ms-5','me-5','d-flex','flex-column','w-50')
+
     const divForm = div.cloneNode(true)
-    divForm.classList.add('mb-3')
 
     const emailFormText = label.cloneNode(true)
     emailFormText.classList.add('form-label')
     emailFormText.textContent = 'Email'
 
-    
+    const emailForm = input.cloneNode(true)
+    emailForm.classList.add('form-control')
 
-    theBody.appendChild(formt)
+    const divFormb = div.cloneNode(true)
+
+    const msgFormText = label.cloneNode(true)
+    msgFormText.classList.add('form-label')
+    msgFormText.textContent = 'Mensagem'
+
+    const msgForm = textArea.cloneNode(true)
+    msgForm.classList.add('form-control')
+    msgForm.rows = '3'
+
+    const enviar = button.cloneNode(true)
+    enviar.classList.add('btn', 'btn-primary','w-25','mt-3')
+    enviar.textContent = 'Enviar'
+
+    theBody.appendChild(divNoia)
+    divNoia.appendChild(divCont)
+    divCont.appendChild(contTexto)
+
+    divNoia.appendChild(formt)
+
     formt.appendChild(divForm)
     divForm.appendChild(emailFormText)
+    divForm.appendChild(emailForm)
+
+    formt.appendChild(divFormb)
+    divFormb.appendChild(msgFormText)
+    divFormb.appendChild(msgForm)
+    
+    formt.appendChild(enviar)
+
+    theBody.appendChild(hr.cloneNode(true))
+
+    // footer
+
+    const footer = nav.cloneNode(true)
+    footer.classList.add('navbar', 'navbar-expand-lg', 'bg-dark')
+
+    const divFooter = div.cloneNode(true)
+    divFooter.classList.add('row')
+    divFooter.style.marginLeft = '35%'
+    divFooter.style.marginRight = '35%'
+
+    const colFooter = div.cloneNode(true)
+    colFooter.classList.add('col')
+
+    const imagemFooter = img.cloneNode(true)  
+    imagemFooter.classList.add('img-fluid')   
+   
+
+    theBody.appendChild(footer)
+    footer.appendChild(divFooter)
+
+
+    imagemFooter.src = 'Imgs/Whatsapp.png'
+    colFooter.appendChild(imagemFooter)
+    divFooter.appendChild(colFooter.cloneNode(true))
+
+    imagemFooter.src = 'Imgs/Discord.png'
+    colFooter.appendChild(imagemFooter)
+    divFooter.appendChild(colFooter.cloneNode(true))
+
+    imagemFooter.src = 'Imgs/Linkedin.png'
+    colFooter.appendChild(imagemFooter)
+    divFooter.appendChild(colFooter.cloneNode(true))
+
+    imagemFooter.src = 'Imgs/Facebook.png'
+    colFooter.appendChild(imagemFooter)
+    divFooter.appendChild(colFooter.cloneNode(true))
 
     theBody.appendChild(script)
 }
