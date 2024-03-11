@@ -17,6 +17,9 @@ function main(){
     const p = document.createElement('p')
     const hr = document.createElement('hr')
     const img = document.createElement('img')
+    const form = document.createElement('form')
+    const label = document.createElement('label')
+    const input = document.createElement('input')
 
     hr.style.margin = '0'
 
@@ -93,7 +96,7 @@ function main(){
     divTextinho.style.paddingRight = '50%'
 
     const quemSou = h1.cloneNode(true)
-    quemSou.textContent = 'Quem sou'
+    quemSou.textContent = 'Quem sou - Antonio Di Cillo'
 
     const textinho = p.cloneNode(true)
     textinho.textContent = 'Eu sou um profissional, programador full stack programo todas as linguagens eu manjo muito disso e odeio dom esse negocio é muito chato pq tenho que programar nisso por favor eu não aguento mais quero ver react e não definir 30 p diferente '
@@ -133,10 +136,7 @@ function main(){
     divCol.classList.add('col')
 
     const imagem = img.cloneNode(true)  
-    imagem.classList.add('img-fluid')
-
-
-
+    imagem.classList.add('img-fluid')   
 
     theBody.appendChild(divBabas)
     divBabas.appendChild(divNegocio)
@@ -158,6 +158,34 @@ function main(){
     divNegocio.appendChild(divCol.cloneNode(true))
    
     theBody.appendChild(hr.cloneNode(true))
+
+    // Contato
+    const divCont = div.cloneNode(true)
+    divCont.style.marginTop = '2rem'
+    divCont.style.marginLeft = '5rem'
+    divCont.style.marginRight = '5rem'
+    divCont.style.marginBottom = '5rem'
+    divCont.classList.add('d-flex','justify-content-center')
+
+    const contTexto = h1.cloneNode(true)
+    contTexto.textContent = 'Contato'
+
+    theBody.appendChild(divCont)
+    divCont.appendChild(contTexto)
+
+    const formt = form.cloneNode(true)
+    const divForm = div.cloneNode(true)
+    divForm.classList.add('mb-3')
+
+    const emailFormText = label.cloneNode(true)
+    emailFormText.classList.add('form-label')
+    emailFormText.textContent = 'Email'
+
+    
+
+    theBody.appendChild(formt)
+    formt.appendChild(divForm)
+    divForm.appendChild(emailFormText)
 
     theBody.appendChild(script)
 }
